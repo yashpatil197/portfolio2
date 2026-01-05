@@ -1273,3 +1273,36 @@ footer {
     color: #ccc;
     line-height: 1.6;
 }
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* This stops the page from scrolling sideways */
+}
+
+/* Force Hero section to be centered on mobile */
+@media screen and (max-width: 768px) {
+    .hero {
+        padding: 0 15px; /* Adds small space on sides */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto; /* Centers the container */
+    }
+
+    .hero-title {
+        font-size: 2.2rem; /* Makes text slightly smaller to fit phone */
+        line-height: 1.3;
+        text-align: center;
+    }
+    
+    .subtitle {
+        text-align: center;
+        width: 100%;
+    }
+}
