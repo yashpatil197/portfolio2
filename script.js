@@ -130,3 +130,19 @@ scrollBtn.addEventListener("click", () => {
         behavior: "smooth"
     });
 });
+// This script fetches your latest stats from GitHub automatically
+    fetch('https://api.github.com/users/yashpatil197')
+    .then(response => response.json())
+    .then(data => {
+        // Update the numbers in the HTML
+        document.getElementById('gh-repos').innerText = data.public_repos;
+        document.getElementById('gh-followers').innerText = data.followers;
+        // Ensure avatar is always fresh
+        document.getElementById('gh-avatar').src = data.avatar_url;
+    })
+    .catch(error => {
+        console.error('Error fetching GitHub stats:', error);
+        // Fallback if GitHub is down
+        document.getElementById('gh-repos').innerText = "15+";
+        document.getElementById('gh-followers').innerText = "Active";
+    });
