@@ -168,37 +168,3 @@ function fetchGitHubStats() {
 fetchGitHubStats();
 
 
-/* =========================================
-   2. SMART LIGHT MODE DETECTOR
-   ========================================= */
-function checkTheme() {
-    // 1. Get the background color of the body
-    const bgColor = window.getComputedStyle(document.body).backgroundColor;
-    
-    // 2. Extract RGB numbers
-    const rgb = bgColor.match(/\d+/g);
-    
-    if (rgb) {
-        // 3. Calculate Brightness (Standard Formula)
-        // If brightness > 180, it's definitely a Light Theme
-        const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-        
-        if (brightness > 180) { 
-            document.body.classList.add('custom-light-active');
-        } else {
-            document.body.classList.remove('custom-light-active');
-        }
-    }
-}
-
-// Check on load
-window.addEventListener('load', checkTheme);
-
-// Check whenever user clicks (to catch theme toggle buttons)
-window.addEventListener('click', () => {
-    setTimeout(checkTheme, 50);
-});
-
-// Watch for automatic changes
-const observer = new MutationObserver(checkTheme);
-observer.observe(document.body, { attributes: true, attributeFilter: ['class', 'style'] });
