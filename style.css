@@ -1355,3 +1355,83 @@ html, body {
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Adds depth */
 }
+/* --- GLOBAL VARIABLES (Dark Mode Default) --- */
+:root {
+    --bg-body: #0a0a0a;
+    --card-bg: #0d1117;
+    --card-border: #30363d;
+    --text-main: #ffffff;
+    --text-sub: #8b949e;
+    --accent: #38bdae;
+    --btn-text: #ffffff;
+    --shadow: none;
+}
+
+/* --- LIGHT MODE (Colorful & Attractive) --- */
+body.light-mode {
+    /* 1. Beautiful Soft Blue-Grey Gradient Background */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-attachment: fixed; /* Keeps background still while scrolling */
+    
+    /* 2. Update Variables for Light Mode */
+    --card-bg: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    --card-border: #ffffff;
+    --text-main: #1f2937; /* Dark Navy for high contrast reading */
+    --text-sub: #4b5563;
+    --accent: #2563eb; /* A stronger Blue/Purple for light mode */
+    --btn-text: #1f2937;
+    
+    /* 3. Soft Shadow to make cards "pop" */
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- APPLYING THE STYLES --- */
+
+/* 1. The GitHub Cards & Boxes */
+.gh-card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    color: var(--text-main) !important;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect for Cards */
+.gh-card:hover {
+    transform: translateY(-5px); /* Floats up slightly */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. Text Colors */
+.gh-title { color: var(--text-main) !important; }
+.gh-subtext { color: var(--text-sub) !important; }
+
+/* 3. Make Your Name "Colorful" in Light Mode */
+body.light-mode h1, 
+body.light-mode h2,
+body.light-mode .logo {
+    background: linear-gradient(to right, #2563eb, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 4. FIX THE INVISIBLE BUTTONS */
+body.light-mode .btn-secondary, 
+body.light-mode .btn-outline {
+    background: transparent;
+    color: #1f2937 !important; /* Dark text */
+    border: 2px solid #1f2937;
+    font-weight: 600;
+}
+
+body.light-mode .btn-secondary:hover {
+    background: #1f2937;
+    color: #ffffff !important;
+}
+
+/* 5. GitHub Chart Correction */
+/* Inverts the chart colors so green dots show up on white */
+body.light-mode img[src*="ghchart"] {
+    filter: brightness(0.9) contrast(1.2);
+}
