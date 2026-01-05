@@ -1355,3 +1355,67 @@ html, body {
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Adds depth */
 }
+/* =========================================
+   LIGHT MODE: COLORFUL & VISIBLE TEXT
+   ========================================= */
+
+/* 1. Force the Background (Gradient) */
+body.force-light-mode {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+    background-attachment: fixed !important;
+    color: #000000 !important; /* Pure Black Text */
+}
+
+/* 2. FORCE TEXT VISIBILITY (The "Crystal Clear" Fix) */
+/* This targets every possible text element to make it dark */
+body.force-light-mode h1, 
+body.force-light-mode h2, 
+body.force-light-mode h3, 
+body.force-light-mode p, 
+body.force-light-mode a, 
+body.force-light-mode span, 
+body.force-light-mode li,
+body.force-light-mode div {
+    color: #050505 !important; /* Near Black */
+}
+
+/* 3. Gradient for Main Heading (Hello I'm Yash) */
+body.force-light-mode h1 {
+    background: -webkit-linear-gradient(45deg, #004e92, #000428);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 4. Fix Invisible Buttons (The "Ghost Button" Fix) */
+body.force-light-mode .btn,
+body.force-light-mode button {
+    border: 2px solid #000000 !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+/* Exception: Keep the Blue "Main" Button Blue */
+body.force-light-mode .btn:first-of-type {
+    background: #2563eb !important;
+    color: #ffffff !important; /* White text on blue background */
+    border: none !important;
+    -webkit-text-fill-color: #ffffff !important; /* Overrides gradient text */
+}
+
+/* 5. Glass Cards for GitHub & Projects */
+body.force-light-mode .gh-card,
+body.force-light-mode .services-box,
+body.force-light-mode .portfolio-box,
+body.force-light-mode .contact form {
+    background: rgba(255, 255, 255, 0.65) !important;
+    border: 1px solid #ffffff !important;
+    backdrop-filter: blur(12px) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 6. Fix Navigation Bar Links */
+body.force-light-mode nav a,
+body.force-light-mode .navbar a {
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
