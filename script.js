@@ -167,4 +167,40 @@ function fetchGitHubStats() {
 // Run immediately
 fetchGitHubStats();
 
+/* =========================================
+   PERMANENT LIGHT MODE FIX (Polling Method)
+   ========================================= */
+
+// This function checks the background color every 500ms
+setInterval(() => {
+    // 1. Get the current background color
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    
+    // 2. Check if it is a light color (White, Light Grey, etc.)
+    if (bgColor === 'rgb(255, 255, 255)' || bgColor === '#ffffff' || bgColor === 'white' || bgColor.includes('255, 255, 255')) {
+        // It is Light Mode -> ADD the fix class
+        if (!document.body.classList.contains('force-light-mode')) {
+            document.body.classList.add('force-light-mode');
+            console.log("Light Mode Detected: Fix Applied");
+        }
+    } else {
+        // It is Dark Mode -> REMOVE the fix class
+        if (document.body.classList.contains('force-light-mode')) {
+            document.body.classList.remove('force-light-mode');
+        }
+    }
+}, 500); // Checks 2 times every second
+
+/* Fetch GitHub Stats (Keep this) */
+function fetchGitHubStats() {
+    fetch('https://api.github.com/users/yashpatil197')
+    .then(res => res.json())
+    .then(data => {
+        if(document.getElementById('gh-repos')) document.getElementById('gh-repos').innerText = data.public_repos;
+        if(document.getElementById('gh-followers')) document.getElementById('gh-followers').innerText = data.followers;
+        if(document.getElementById('gh-avatar')) document.getElementById('gh-avatar').src = data.avatar_url;
+    })
+    .catch(err => console.error(err));
+}
+fetchGitHubStats();
 
