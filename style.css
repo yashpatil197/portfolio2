@@ -1419,3 +1419,14 @@ body.force-light-mode .navbar a {
     color: #000000 !important;
     font-weight: 600 !important;
 }
+
+
+.your-white-box-class {
+    color: #000000 !important; /* Forces text to Black */
+}
+/* Fix for the GitHub username */
+.github-profile-name, 
+.github-username,
+h2, h3 {  /* Checking common tags for names */
+    color: #ffffff !important; /* Forces text to White */
+}
