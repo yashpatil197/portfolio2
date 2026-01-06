@@ -1420,10 +1420,16 @@ body.force-light-mode .navbar a {
     font-weight: 600 !important;
 }
 
-
+/* Fix for the white box at the bottom */
 .your-white-box-class {
     color: #000000 !important; /* Forces text to Black */
 }
+
+/* If the text is a link inside the box */
+.your-white-box-class a {
+    color: #000000 !important; 
+}
+ 
 /* Fix for the GitHub username */
 .github-profile-name, 
 .github-username,
