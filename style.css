@@ -1461,3 +1461,13 @@ body.force-light-mode .navbar a {
 h2, h3 {  /* Checking common tags for names */
     color: #ffffff !important; /* Forces text to White */
 }
+/* Force GitHub icon in contact section to be visible */
+.contact-card .fa-github {
+    color: #ffffff; /* Sets it to white */
+    font-size: 2rem;
+}
+
+/* Optional: Make it your theme color (teal) on hover */
+.contact-card:hover .fa-github {
+    color: #38bdae; 
+}
