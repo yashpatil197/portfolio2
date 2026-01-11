@@ -1429,7 +1429,32 @@ body.force-light-mode .navbar a {
 .your-white-box-class a {
     color: #000000 !important; 
 }
- 
+ /* --- NEW ADDITIONS --- */
+
+/* Skill Icons */
+.skills-icons-container { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; justify-content: center; }
+.skill-box { text-align: center; transition: transform 0.3s ease; width: 80px; }
+.skill-box i { font-size: 3rem; margin-bottom: 5px; display: block; }
+.skill-box p { font-size: 0.9rem; margin: 0; }
+.skill-box:hover { transform: translateY(-5px); }
+
+/* Services Section */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 0 20px; max-width: 1200px; margin: 0 auto; }
+.service-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 15px; text-align: center; transition: all 0.3s ease; }
+.service-card:hover { transform: translateY(-10px); border-color: #38bdae; box-shadow: 0 10px 30px rgba(56, 189, 174, 0.2); }
+.service-card i { font-size: 2.5rem; color: #38bdae; margin-bottom: 20px; }
+
+/* Contact Form */
+.form-wrapper { width: 100%; max-width: 600px; margin: 40px auto 0; }
+.contact-form { display: flex; flex-direction: column; gap: 15px; }
+.input-group { display: flex; gap: 15px; }
+.input-group input { width: 50%; }
+.contact-form input, .contact-form textarea { padding: 15px; border-radius: 8px; border: 1px solid #ddd; background: rgba(255,255,255,0.05); color: inherit; outline: none; transition: border-color 0.3s; font-family: inherit; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: #38bdae; }
+.form-btn { width: 100%; cursor: pointer; }
+
+/* Mobile Fix */
+@media (max-width: 768px) { .input-group { flex-direction: column; } .input-group input { width: 100%; } }
 /* Fix for the GitHub username */
 .github-profile-name, 
 .github-username,
