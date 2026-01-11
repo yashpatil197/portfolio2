@@ -1537,3 +1537,18 @@ footer {
         margin-top: 10px;
     }
 }
+/* =========================================
+   MOBILE ONLY VISIBILITY TOGGLE
+   ========================================= */
+
+/* 1. Hide the element by default (on Desktop/Tablet) */
+.mobile-only {
+    display: none;
+}
+
+/* 2. Show the element ONLY on Mobile screens */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block !important; /* Forces it to appear */
+    }
+}
