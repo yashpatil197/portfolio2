@@ -1400,58 +1400,82 @@ h2, h3 {  /* Checking common tags for names */
         max-width: 340px; /* Keeps it consistent with your other cards */
     }
 }
-/* --- Enhanced Footer --- */
+/* =========================================
+   FOOTER ALIGNMENT FIX
+   (Replace previous footer CSS with this)
+   ========================================= */
+
 footer {
-    background: #0b0f14;
-    padding: 60px 10% 20px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    background-color: var(--primary-color); /* Matches your theme */
+    padding: 70px 10% 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
 }
 
 .footer-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    display: flex;            /* Uses Flexbox for better distribution */
+    justify-content: space-between; /* Pushes columns apart */
+    flex-wrap: wrap;          /* Allows wrapping on smaller tablets */
     gap: 40px;
-    margin-bottom: 40px;
+    max-width: 1200px;        /* Prevents it from getting too wide on big screens */
+    margin: 0 auto 40px;      /* Centers the container */
+}
+
+/* --- Column Styling --- */
+.footer-col {
+    flex: 1;                  /* Each column takes available space */
+    min-width: 220px;         /* Ensures columns don't get too thin */
+}
+
+/* First column (Brand) gets slightly more space */
+.footer-col:first-child {
+    flex: 2;
+    padding-right: 40px;      /* Adds breathing room for the text */
 }
 
 .footer-col h3 {
     font-size: 1.8rem;
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .footer-col h4 {
     font-size: 1.1rem;
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    position: relative;
 }
 
 .footer-col p {
     color: #a0a0a0;
-    font-size: 0.9rem;
     line-height: 1.6;
-    max-width: 300px;
+    margin-bottom: 20px;
 }
 
+/* --- List Alignment Fix --- */
 .footer-col ul {
     list-style: none;
+    padding: 0;        /* CRUCIAL: Removes default browser indentation */
+    margin: 0;
 }
 
 .footer-col ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .footer-col ul li a {
     color: #a0a0a0;
-    font-size: 0.95rem;
+    text-decoration: none;
     transition: 0.3s;
+    display: inline-block; /* Allows transform to work */
 }
 
 .footer-col ul li a:hover {
     color: var(--accent-color);
-    padding-left: 5px;
+    transform: translateX(5px); /* Subtle slide right on hover */
 }
 
+/* --- Social Icons --- */
 .footer-socials {
     display: flex;
     gap: 15px;
@@ -1460,41 +1484,56 @@ footer {
 .footer-socials a {
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.08);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     color: #fff;
-    transition: 0.3s;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
 }
 
 .footer-socials a:hover {
     background: var(--accent-color);
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* --- Bottom Copyright --- */
 .footer-bottom {
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    color: #555;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #666;
     font-size: 0.85rem;
 }
 
-/* Mobile Footer */
+/* =========================================
+   MOBILE FOOTER ALIGNMENT
+   ========================================= */
 @media (max-width: 768px) {
+    footer {
+        padding: 50px 5% 20px; /* Reduce side padding on mobile */
+    }
+
     .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 30px;
+        flex-direction: column; /* Stack columns vertically */
+        text-align: center;     /* Center all text */
+        gap: 35px;
     }
 
-    .footer-col p {
-        margin: 0 auto;
+    .footer-col:first-child {
+        padding-right: 0;       /* Remove desktop padding */
     }
 
+    /* Center the social icons */
     .footer-socials {
         justify-content: center;
+    }
+
+    /* Center the copyright text */
+    .footer-bottom {
+        margin-top: 10px;
     }
 }
