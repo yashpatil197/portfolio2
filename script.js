@@ -2,10 +2,30 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Animate On Scroll (AOS)
-    AOS.init({
-        duration: 1000, // values from 0 to 3000, with step 50ms
-        once: true,     // whether animation should happen only once - while scrolling down
-    });
+   /* Initialize Animate On Scroll */
+AOS.init({
+    // Global settings:
+    disable: false, 
+    startEvent: 'DOMContentLoaded', 
+    initClassName: 'aos-init',
+    animatedClassName: 'aos-animate', 
+    useClassNames: false, 
+    disableMutationObserver: false, 
+    debounceDelay: 50, 
+    throttleDelay: 99, 
+    
+    // Settings that control the Fade In/Out behavior:
+    
+    offset: 120,    // Offset (in px) from the original trigger point
+    delay: 0,       // Delay before animation starts
+    duration: 800,  // Duration of the animation (how long the fade takes)
+    easing: 'ease', // Easing function
+    
+    once: false,    // CRITICAL: Set to 'false' so it animates every time you scroll to it
+    mirror: true,   // CRITICAL: Set to 'true' so elements animate OUT when scrolling past them
+    
+    anchorPlacement: 'top-bottom', // Defines which position of the element triggers the animation
+});
 
     // Custom Cursor Logic
     const cursorDot = document.querySelector('.cursor-dot');
