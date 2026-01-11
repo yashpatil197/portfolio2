@@ -425,20 +425,6 @@ footer {
     visibility: hidden;
 }
 
-.spinner {
-    width: 45px;
-    height: 45px;
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    border-top: 4px solid #4da3ff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
 /* ================= MOBILE + DESKTOP RESPONSIVE ================= */
 
 /* Global safety */
@@ -697,43 +683,6 @@ section:nth-of-type(4) { animation-delay: 0.8s; }
         transparent,
         var(--accent),
         transparent
-    );
-}
-
-/* 2️⃣ Dotted modern line */
-.divider-dots {
-    width: 50%;
-    height: 2px;
-    margin: 70px auto;
-    background-image: radial-gradient(var(--accent) 2px, transparent 2px);
-    background-size: 12px 2px;
-    background-repeat: repeat-x;
-}
-
-/* 3️⃣ Gradient glow line */
-.divider-gradient {
-    width: 60%;
-    height: 2px;
-    margin: 80px auto;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #4da3ff,
-        #00d4ff,
-        transparent
-    );
-    box-shadow: 0 0 10px rgba(77, 163, 255, 0.4);
-}
-
-/* 4️⃣ Wave divider */
-.divider-wave {
-    width: 100%;
-    height: 40px;
-    margin: 80px 0;
-    background: radial-gradient(
-        circle at 50% -20px,
-        var(--accent) 40%,
-        transparent 41%
     );
 }
 /* ================= CONTACT SECTION ================= */
@@ -1323,111 +1272,11 @@ html, body {
     max-width: 100vw;
     overflow-x: hidden !important; /* Forces content to stay inside screen width */
 }
-
-/* 2. GITHUB SECTION STYLING */
-.github-container {
-    display: flex;
-    flex-wrap: wrap;       /* Allows items to wrap to next line on small screens */
-    justify-content: center; /* Centers items horizontally */
-    align-items: center;
-    gap: 2rem;             /* Space between the cards */
-    margin-top: 2rem;
-    padding: 0 1rem;       /* Safety padding for mobile edges */
-}
-
-/* 3. RESPONSIVE CARDS */
-.github-card {
-    flex: 1 1 300px;       /* Grow to fill space, but shrink if needed. Min width 300px */
-    max-width: 500px;      /* Never get wider than 500px (looks bad if too wide) */
-    width: 100%;           /* Ensure it takes full available width up to max-width */
-    display: flex;
-    justify-content: center;
-    transition: transform 0.3s ease;
-}
-
-.github-card:hover {
-    transform: translateY(-5px); /* Subtle hover effect */
-}
-
-.github-card img {
-    width: 100%;           /* Image scales with the container */
-    height: auto;          /* Maintains aspect ratio */
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Adds depth */
-}
-/* =========================================
-   LIGHT MODE: COLORFUL & VISIBLE TEXT
-   ========================================= */
-
-/* 1. Force the Background (Gradient) */
-body.force-light-mode {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
-    background-attachment: fixed !important;
-    color: #000000 !important; /* Pure Black Text */
-}
-
-/* 2. FORCE TEXT VISIBILITY (The "Crystal Clear" Fix) */
-/* This targets every possible text element to make it dark */
-body.force-light-mode h1, 
-body.force-light-mode h2, 
-body.force-light-mode h3, 
-body.force-light-mode p, 
-body.force-light-mode a, 
-body.force-light-mode span, 
-body.force-light-mode li,
-body.force-light-mode div {
-    color: #050505 !important; /* Near Black */
-}
-
-/* 3. Gradient for Main Heading (Hello I'm Yash) */
-body.force-light-mode h1 {
-    background: -webkit-linear-gradient(45deg, #004e92, #000428);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* 4. Fix Invisible Buttons (The "Ghost Button" Fix) */
-body.force-light-mode .btn,
-body.force-light-mode button {
-    border: 2px solid #000000 !important;
-    color: #000000 !important;
-    font-weight: 700 !important;
-}
-
-/* Exception: Keep the Blue "Main" Button Blue */
-body.force-light-mode .btn:first-of-type {
-    background: #2563eb !important;
-    color: #ffffff !important; /* White text on blue background */
-    border: none !important;
-    -webkit-text-fill-color: #ffffff !important; /* Overrides gradient text */
-}
-
-/* 5. Glass Cards for GitHub & Projects */
-body.force-light-mode .gh-card,
-body.force-light-mode .services-box,
-body.force-light-mode .portfolio-box,
-body.force-light-mode .contact form {
-    background: rgba(255, 255, 255, 0.65) !important;
-    border: 1px solid #ffffff !important;
-    backdrop-filter: blur(12px) !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
-}
-
 /* 6. Fix Navigation Bar Links */
 body.force-light-mode nav a,
 body.force-light-mode .navbar a {
     color: #000000 !important;
     font-weight: 600 !important;
-}
-
-/* Fix for the white box at the bottom */
-.your-white-box-class {
-    color: #000000 !important; /* Forces text to Black */
-}
-
-/* If the text is a link inside the box */
-.your-white-box-class a {
-    color: #000000 !important; 
 }
  /* --- NEW ADDITIONS --- */
 
