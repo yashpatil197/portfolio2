@@ -633,11 +633,12 @@ body {
 
 /* Toggle button */
 .theme-toggle {
-    background: none;
-    border: none;
-    font-size: 20px;
+    position: absolute; /* Pins it relative to the nearest positioned ancestor (usually the body or header) */
+    top: 0;
+    right: 0;
+    margin: 30px 40px; /* Adjust these values to match your Logo's margins exactly */
     cursor: pointer;
-    color: var(--text-color);
+    z-index: 1000;
 }
 section {
     padding: 80px 0;
