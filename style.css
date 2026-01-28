@@ -1729,16 +1729,26 @@ footer {
     }
 }
 
-
-body {
-    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a1a2e);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    color: white; /* Ensures text is visible */
+/* Pulse effect for the connecting lines */
+.tree-connector div {
+    background: linear-gradient(90deg, #00f260, #0575e6, #00f260); /* Electric colors */
+    background-size: 200% 200%;
+    animation: flowLine 3s linear infinite;
+    box-shadow: 0 0 10px rgba(5, 117, 230, 0.6);
 }
 
-@keyframes gradientBG {
+@keyframes flowLine {
     0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Make the logos float gently */
+.logo-circle {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); } /* Moves up */
+    100% { transform: translateY(0px); }
 }
