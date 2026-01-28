@@ -1553,3 +1553,178 @@ footer {
         display: block !important; /* Forces it to appear */
     }
 }
+/* --- VENTURES TREE SECTION --- */
+.ventures-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: transparent; /* Or match your body background */
+}
+
+.section-subtitle {
+    margin-bottom: 3rem;
+    color: #888; /* Adjust based on your theme */
+    font-size: 0.9rem;
+}
+
+/* Tree Layout */
+.org-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Cards Styling */
+.org-card {
+    background: rgba(255, 255, 255, 0.05); /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 15px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 2; /* Keeps card above lines */
+}
+
+.org-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: var(--main-color, #0ef); /* Uses your main theme color */
+}
+
+.parent-card {
+    width: 240px;
+    border-bottom: 3px solid var(--main-color, #0ef);
+}
+
+.logo-circle {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--main-color, #0ef);
+}
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.org-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: white; /* Or var(--text-color) */
+}
+
+.org-card p {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.role-badge {
+    display: inline-block;
+    background: var(--main-color, #0ef);
+    color: #000;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* --- THE CONNECTING LINES (The "Tree" Logic) --- */
+.tree-connector {
+    position: relative;
+    height: 60px; /* Space between parent and children */
+    width: 50%; /* Width determines how far apart children branches are */
+    min-width: 220px; /* Min width to prevent lines collapsing */
+}
+
+/* 1. Line going down from Parent */
+.vertical-line-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 50%; /* Goes half way down */
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 2. Horizontal bar */
+.horizontal-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 3. Lines going down to Children */
+.vertical-line-bottom-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 2px;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.vertical-line-bottom-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 2px;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Children Container */
+.children-level {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px; /* Should match or exceed tree-connector width logic */
+    gap: 20px;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 600px) {
+    /* On mobile, collapse the tree into a simple stack */
+    .tree-connector {
+        display: none; /* Hide complex lines */
+    }
+    
+    .children-level {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    /* Add a simple simple line for mobile stack */
+    .parent-card::after {
+        content: '';
+        display: block;
+        width: 2px;
+        height: 20px;
+        background: rgba(255,255,255,0.2);
+        margin: 0 auto;
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+    }
+}
