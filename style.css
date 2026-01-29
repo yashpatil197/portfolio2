@@ -1764,16 +1764,3 @@ footer {
     to { width: 100%; } /* This will fill to the container's max, 
                            so rely on the parent width or max-width */
 }
-
-/* Better Approach: */
-/* Add this specific class to your HTML bars: style="--target-width: 90%" */
-/* Then use this CSS: */
-.progress-fill {
-    width: 0;
-    animation: fillBarDynamic 1.5s ease-out forwards;
-    animation-delay: 0.5s; /* Wait for user to scroll */
-}
-
-@keyframes fillBarDynamic {
-    to { width: var(--target-width, 100%); } /* Uses the variable set in HTML */
-}
