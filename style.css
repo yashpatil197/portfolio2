@@ -1577,24 +1577,29 @@ footer {
     margin: 0 auto;
 }
 
-/* Cards Styling */
 .org-card {
-    background: rgba(255, 255, 255, 0.05); /* Glassmorphism effect */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Dark semi-transparent background */
+    background: rgba(13, 17, 23, 0.6); 
+    
+    /* Blur behind the card */
     backdrop-filter: blur(10px);
-    padding: 1.5rem;
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Thin glowing border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Other existing styles... */
     border-radius: 15px;
-    width: 200px;
+    padding: 1.5rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    z-index: 2; /* Keeps card above lines */
 }
 
+/* Add a glow on hover */
 .org-card:hover {
+    box-shadow: 0 0 20px rgba(0, 238, 255, 0.3);
+    border-color: #0ef;
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    border-color: var(--main-color, #0ef); /* Uses your main theme color */
 }
 
 .parent-card {
@@ -1699,27 +1704,6 @@ footer {
     width: 100%;
     max-width: 600px; /* Should match or exceed tree-connector width logic */
     gap: 20px;
-}
-
-#ventures {
-    /* 1. The Solid Background Color */
-    /* Use the same color as your 'What I Do' section. 
-       If you don't know it, #1f242d is a standard dark theme color. */
-    background: #1f242d; 
-    
-    /* 2. Spacing and Shape */
-    padding: 60px 20px;       /* Inner space so text isn't touching edges */
-    margin: 40px auto;        /* Outer space to separate it from other sections */
-    border-radius: 20px;      /* Rounded corners */
-    max-width: 1200px;        /* Prevents it from getting too wide on large screens */
-    
-    /* 3. Depth and Border */
-    border: 1px solid #323946; /* Subtle border line */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Drop shadow */
-
-    /* 4. Visibility over animations */
-    position: relative;
-    z-index: 2; /* Ensures it sits ON TOP of the particle background */
 }
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
